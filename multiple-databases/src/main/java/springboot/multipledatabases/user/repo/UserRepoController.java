@@ -28,9 +28,9 @@ public class UserRepoController {
   @ResponseBody
   @GetMapping("/users/{username}/purchases")
   public ResponseEntity<?> listPurchases(@PathVariable String username) {
-    List<Purchase> producers = purchaseRepo.findByUsername(username);
+    List<Purchase> purchases = purchaseRepo.findByUsername(username);
 
-    Resources<Purchase> resources = new Resources<>(producers);
+    Resources<Purchase> resources = new Resources<>(purchases);
     resources.add(linkTo(methodOn(UserRepoController.class).listPurchases(username)).withSelfRel());
 
     return ResponseEntity.ok(resources);

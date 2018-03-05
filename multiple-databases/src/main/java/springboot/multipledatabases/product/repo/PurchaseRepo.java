@@ -9,6 +9,6 @@ import java.util.List;
 @RepositoryRestResource
 public interface PurchaseRepo extends JpaRepository<Purchase, Long> {
 
-  List<Purchase> findByUsername(String name);
+  List<Purchase> findByUsername(String username);
 
 }
